@@ -7,10 +7,11 @@ dotenv.config();
 const app = express();
 
 app.use(express.json()); // allows us to accept JSON data in the req.body
+const PORT = process.env.PORT || 5001;
 
 app.use('/api/products', productRoutes);
 
-app.listen(5001, () => {
+app.listen(PORT, () => {
   connectDB();
-  console.log('Server started on http://localhost:5001');
+  console.log('Server started on http://localhost' + PORT);
 });
